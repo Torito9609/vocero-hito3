@@ -1,47 +1,47 @@
 # VOCERO: ¿Lo firmarías?
 
-Prototipo del Hito 3 del Grupo 20 en la Cátedra Manuel Ancízar (reto L08-A, «El delegado artificial»).
+Prototipo del Hito 3 del **Grupo 20** en la Cátedra de Sede Manuel Ancízar *Más que humanos: IA, salud y posthumanismo* (UNAL, 2026-2), reto L08-A «El delegado artificial».
+
+> ¿Puedes respaldar y asumir responsabilidad por una decisión tomada en tu nombre por una inteligencia artificial cuando solo conoces parte de sus consecuencias?
+
+## Enlaces
+
+| | |
+|---|---|
+| **Jugar** | https://torito9609.github.io/vocero-hito3/ |
+| **Modo conductor** (notas de observación y selector de versión) | https://torito9609.github.io/vocero-hito3/?conductor=1 |
+| **Guía para quien conduce y observa** | https://torito9609.github.io/vocero-hito3/guia.html |
+
+Funciona en computador y celular, sin instalar nada. También se puede abrir sin internet: basta con hacer doble clic en `index.html`.
+
+## La experiencia
+
+Una persona asume el papel de un ciudadano o ciudadana de Bogotá en 2032. Su delegado artificial, VOCERO, votó por ella un acuerdo de alimentación escolar. En una asamblea ilustrada vive cinco momentos. En cada uno, los personajes hablan por turnos y la persona «levanta la mano» para elegir una acción. Después revisa su postura. Al final ratifica, condiciona o impugna el acuerdo, dice quién debe responder por él y descubre todo lo que no vio. La partida dura entre 15 y 20 minutos.
+
+- **4 versiones de la historia.** Cada una pone el foco en una disciplina del grupo: *El plato* (Nutrición), *La ruta* (Ing. Civil y Mecánica), *La cuenta* (Contaduría) y *El modelo* (Ing. de Sistemas). La versión sale al azar, o la elige quien conduce en el modo conductor.
+- **Sonido.** VOCERO habla con la voz sintética del navegador y hace pitidos robóticos. La sala tiene efectos: murmullo de fondo, campanilla, mazo, urna, entre otros. Se silencia con 🔊.
+- **Registro descargable** (.txt) con las acciones, los cambios de postura, las razones, los tiempos y el cierre, para el registro de la prueba.
+- **↺ Nueva partida** en el encabezado.
 
 ## Archivos
 
 | Archivo | Qué es |
 |---|---|
-| `index.html` | La experiencia (abrir con `?conductor=1` para ver notas de observación) |
-| `guia.html` | Instrucciones para quien conduce y observa |
-| `guion.js` | **Todo el contenido**: las 4 versiones de la historia, personajes, momentos, acciones, respuestas y consecuencias. Para corregir un texto, editen este archivo |
+| `index.html` | La experiencia |
+| `guia.html` | Instrucciones para conducir y observar la prueba |
+| `guion.js` | **Todo el contenido**: las 4 versiones, los personajes, los diálogos, las acciones, las respuestas y las consecuencias. Para corregir un texto, editen este archivo |
 | `motor.js` | Lógica del juego (no hace falta tocarla para cambiar textos) |
-| `sonido.js` | Sonidos de VOCERO y de la sala, generados en el navegador (sin archivos de audio) |
-| `estilos.css` | Apariencia |
-| `Plantilla_Hito3_G20_borrador.md` | Borrador para la plantilla del entregable |
+| `sonido.js` | Voz de VOCERO y efectos de sonido, generados en el navegador (sin archivos de audio) |
+| `estilos.css` | Apariencia, ilustraciones y animaciones |
 
-## Abrir en el computador
+## Publicar cambios
 
-Hagan doble clic en `index.html`. No necesita internet ni instalar nada.
-
-## Publicar en GitHub Pages (enlace para el profesor)
-
-1. Entren a GitHub y creen un repositorio **público**, por ejemplo `vocero-hito3`.
-2. Pulsen **Add file → Upload files** y arrastren `index.html`, `guia.html`, `guion.js`, `motor.js`, `sonido.js` y `estilos.css`. Pulsen **Commit changes**.
-3. Vayan a **Settings → Pages**. En *Build and deployment* elijan **Deploy from a branch**, rama `main` y carpeta `/ (root)`. Pulsen **Save**.
-4. Después de 1 o 2 minutos aparece el enlace: `https://SU-USUARIO.github.io/vocero-hito3/`.
-5. Ábranlo en una ventana de incógnito y en un celular para comprobar que funciona. Luego pongan el enlace en la plantilla.
-
-Enlaces para el entregable:
-- Experiencia: `https://SU-USUARIO.github.io/vocero-hito3/`
-- Modo conductor: `https://SU-USUARIO.github.io/vocero-hito3/?conductor=1`
-- Instrucciones: `https://SU-USUARIO.github.io/vocero-hito3/guia.html`
-
-Con la terminal, los pasos 1 y 2 equivalen a:
-
-```bash
-cd hito3
-git init && git add index.html guia.html guion.js motor.js sonido.js estilos.css README.md
-git commit -m "Prototipo Hito 3"
-git branch -M main
-git remote add origin https://github.com/SU-USUARIO/vocero-hito3.git
-git push -u origin main
-```
+Editen los archivos y súbanlos a la rama `main`, con *Add file → Upload files* o con `git push`. GitHub Pages actualiza el sitio en uno o dos minutos.
 
 ## Privacidad
 
-Lo que escribe la persona participante se guarda solo en su navegador (`localStorage`) y nunca se envía a internet. Al terminar la prueba, descarguen el registro y pulsen **Nueva partida** para borrarlo.
+Lo que escribe la persona participante se guarda solo en el navegador de ese dispositivo (`localStorage`) y nunca se envía a internet. Al terminar la prueba, descarguen el registro y pulsen **↺ Nueva partida** para borrarlo. Otra opción es jugar en una **ventana de incógnito**: todo se borra al cerrarla, así que hay que descargar el registro antes de cerrarla.
+
+## Créditos
+
+El escenario y el contenido son del Grupo 20 y se basan en sus entregables H1 y H2. Las cifras son ficticias. La página se programó con ayuda de Claude (Anthropic).
