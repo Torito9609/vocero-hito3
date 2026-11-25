@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guía para conducir la prueba — VOCERO: ¿Lo firmarías?</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div id="app">
+  <header class="top"><div class="marca">VOCERO<span>·</span><small>Guía para quien conduce</small></div></header>
+  <main class="carta guia">
+    <p class="sobre">Grupo 20 · Reto L08-A «El delegado artificial»</p>
+    <h1>Cómo realizar la experiencia</h1>
+    <div class="pregunta"><span>Pregunta de la experiencia</span>¿Puedes respaldar y asumir responsabilidad por una decisión tomada en tu nombre por una inteligencia artificial cuando solo conoces parte de sus consecuencias?</div>
+
+    <h3>Qué es</h3>
+    <p>Una simulación web, individual, de 15 a 20 minutos. La persona participante asume el papel de un ciudadano o ciudadana de Bogotá en 2032. Su delegado artificial (VOCERO) votó por ella un acuerdo de alimentación escolar. Durante cinco momentos de una asamblea, la persona descubre consecuencias que no conocía, actúa (pregunta o escucha) y revisa su postura. Al final vota: ratificar, condicionar o impugnar, y dice quién debe responder por la decisión.</p>
+    <p>VOCERO no es una IA real: sus respuestas están escritas en el guion (<code>guion.js</code>). Las cifras son ficticias.</p>
+
+    <h3>Qué se necesita</h3>
+    <ul>
+      <li>Un computador, tableta o celular con navegador. No requiere internet una vez abierta la página ni instalar nada.</li>
+      <li>Enlace del juego: <code>index.html</code>. Para quien conduce, abrirlo con <code>index.html?conductor=1</code>: muestra en cada pantalla una nota de qué observar.</li>
+      <li>Dos integrantes del grupo: <strong>conductor/a</strong> y <strong>observador/a</strong> (toma notas).</li>
+    </ul>
+
+    <h3>Antes de empezar (conductor/a)</h3>
+    <ol>
+      <li>Explicar que la participación es voluntaria, que puede detenerse cuando quiera y que no hay respuestas correctas.</li>
+      <li>Asignar un código (P1, P2…). No registrar nombre ni datos personales.</li>
+      <li>Si se va a grabar imagen o voz, pedir autorización antes. Es opcional.</li>
+      <li>Pedirle que piense en voz alta: que diga lo que le sorprende o le hace dudar.</li>
+    </ol>
+
+    <h3>Recorrido</h3>
+    <table>
+      <tr><th>Pantalla</th><th>Qué hace la persona</th><th>Qué hace el grupo</th></tr>
+      <tr><td>Portada</td><td>Lee su papel, la pregunta y lo que puede o no puede hacer.</td><td>El conductor lee en voz alta la pregunta y el papel, y escribe el código.</td></tr>
+      <tr><td>Configura tu delegado</td><td>Elige un perfil y ordena 3 prioridades: cobertura, calidad del menú y productores locales.</td><td>No sugerir el orden. Anotar si duda.</td></tr>
+      <tr><td>Tu delegado votó</td><td>Lee la explicación de VOCERO (verdadera pero parcial) y marca su postura inicial con una razón.</td><td>Observar si explica con sus palabras qué decidió su delegado.</td></tr>
+      <tr><td>Momentos 1 a 5</td><td>En cada uno: lee la situación, elige <strong>una</strong> acción, recibe una respuesta y revisa su postura. Si la cambia, debe decir por qué.</td><td>Anotar cambios de postura, expresiones en voz alta y ayudas dadas.</td></tr>
+      <tr><td>La votación</td><td>Ratifica, condiciona (máximo 2 condiciones) o impugna. Elige quién debería responder y contesta la pregunta central.</td><td>Anotar sus palabras exactas.</td></tr>
+      <tr><td>Consecuencias</td><td>Ve qué cuesta su decisión y un contrapunto a su elección de responsable.</td><td>—</td></tr>
+      <tr><td>Lo que no viste</td><td>Descubre las respuestas que no abrió y puede comentar si cambiaría algo.</td><td>Observar su reacción.</td></tr>
+      <tr><td>Tu recorrido</td><td>Ve cómo cambió su postura.</td><td>Pulsar <em>Descargar .txt</em> y conversar: qué entendió, qué sintió, qué posición sostuvo o cambió y por qué.</td></tr>
+    </table>
+
+    <h3>Momentos y miradas disciplinares</h3>
+    <ol>
+      <li><strong>La asamblea</strong>: explicabilidad de la IA (Ingeniería de Sistemas).</li>
+      <li><strong>El plato</strong>: calidad nutricional del menú con leguminosas (Nutrición y Dietética).</li>
+      <li><strong>La finca</strong>: compras a productores locales (economía local).</li>
+      <li><strong>La cocina</strong>: infraestructura y ventilación de los colegios (Ingeniería Civil y Mecánica).</li>
+      <li><strong>La firma</strong>: rendición de cuentas sobre recursos públicos (Contaduría Pública).</li>
+    </ol>
+
+    <h3>Ayudas permitidas</h3>
+    <ul>
+      <li>Si no sabe qué hacer: «Elige la acción que más te interese; solo puedes una».</li>
+      <li>Si pregunta qué falta saber: «Lo descubrirás en la asamblea».</li>
+      <li>No opinar sobre cuál es la mejor decisión. Registrar toda ayuda que se dé.</li>
+    </ul>
+
+    <h3>Datos y privacidad</h3>
+    <p>Lo que escribe la persona se guarda solo en el navegador de ese dispositivo (para no perderlo si se recarga la página) y no se envía a ningún servidor. Al terminar, el grupo descarga el registro y pulsa <em>Nueva partida</em> para borrarlo.</p>
+
+    <p><a class="btn primario" href="index.html?conductor=1">Abrir la experiencia en modo conductor →</a></p>
+  </main>
+</div>
+</body>
+</html>
