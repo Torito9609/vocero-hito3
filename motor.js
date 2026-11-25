@@ -29,7 +29,9 @@
   const REDUCIDO = !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const app = document.getElementById("app");
   const nada = () => {};
-  const S = window.SONIDO || { activo: false, alternar: nada, vocero: nada, piensa: nada, aprende: nada, datos: nada, finDatos: nada, mano: nada, murmullo: nada, urna: nada, carta: nada };
+  // Si no hay módulo de sonido, cualquier llamada S.algo() no hace nada
+  const S = window.SONIDO || new Proxy({}, { get: (o, k) => (k === "activo" ? false : nada) });
+  const IDS_PJ = Object.keys(window.GUION.personajes);
 
   // ---------- Secuencia de pasos ----------
   const PASOS = [{ tipo: "portada" }, { tipo: "config" }, { tipo: "explicacion" }];
@@ -269,6 +271,7 @@
       }
     }
     function paso() {
+      if (tok === dlgToken && !ocupado) S.callar(); // al avanzar, VOCERO deja de hablar
       if (tok !== dlgToken || ocupado) return;
       if (k >= lineas.length) return terminar();
       const l = lineas[k++];
@@ -284,6 +287,8 @@
         log.insertAdjacentHTML("beforeend", lineaHTML(l));
         marcar(l.quien);
         if (l.quien === "vocero") S.vocero(t(l.texto));
+        else if (l.quien === "tu") S.envio();
+        else if (l.quien !== "narrador") S.mensaje(Math.max(0, IDS_PJ.indexOf(l.quien)));
         verAbajo(log.lastElementChild);
         listo();
       });
@@ -758,6 +763,7 @@
     const e = [...app.querySelectorAll(".error")].pop();
     if (e) {
       e.textContent = msg;
+      if (!msg.includes("✓")) S.error();
       e.classList.add("visible");
     }
   }
@@ -825,6 +831,7 @@
     const b = ev.target.closest("[data-accion]");
     if (!b) return;
     const acc = b.dataset.accion;
+    if (!["sonido", "actuar", "voltear", "prio"].includes(acc)) S.click();
     const paso = PASOS[partida.paso];
     if (acc === "siguiente") siguiente();
     else if (acc === "prio") {
@@ -889,6 +896,8 @@
 
   app.addEventListener("change", (ev) => {
     const el = ev.target;
+    if (el.name === "nivel") S.postura(+el.value);
+    else if (el.type === "radio" || el.type === "checkbox") S.click();
     if (el.name === "decision") {
       app.querySelector(".condiciones").classList.toggle("oculto", el.value !== "condicionar");
     }
@@ -947,6 +956,25 @@
   }
 
   // ---------- Dibujo ----------
+  // Ambiente y efectos al entrar a cada pantalla
+  function sonidoDePantalla(paso) {
+    S.callar();
+    S.ambiente(["presenta", "responde", "revisa", "cierre"].includes(paso.tipo));
+    const efecto = {
+      config: () => S.transicion(),
+      explicacion: () => S.notificacion(),
+      presenta: () => {
+        S.campana();
+        if (app.querySelector(".badge")) setTimeout(() => S.alerta(), 1300);
+      },
+      cierre: () => S.mazo(),
+      consecuencias: () => S.urna(),
+      noViste: () => S.misterio(),
+      resumen: () => S.exito(),
+    }[paso.tipo];
+    if (efecto) efecto();
+  }
+
   function render(mismaPantalla) {
     const paso = PASOS[partida.paso];
     if (!mismaPantalla) entradaPaso = Date.now();
@@ -971,7 +999,7 @@
       const h = app.querySelector("h1, h2");
       if (h) h.focus({ preventScroll: true });
       if (dialogos[paso.tipo]) iniciarDialogo(dialogos[paso.tipo](paso));
-      if (paso.tipo === "consecuencias") S.urna();
+      sonidoDePantalla(paso);
     }
   }
 
